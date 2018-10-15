@@ -1,5 +1,7 @@
 # What is a service mesh?
 
+## Definitions from the internet
+
 1. [Istio](https://istio.io/docs/concepts/what-is-istio/#what-is-a-service-mesh)
 
    > The term service mesh is used to describe the network of microservices that make up such applications and the interactions between them. As a service mesh grows in size and complexity, it can become harder to understand and manage. Its requirements can include discovery, load balancing, failure recovery, metrics, and monitoring.
@@ -14,15 +16,15 @@
 
    > A service mesh is a configurable infrastructure layer for a microservices application. It makes communication between service instances flexible, reliable, and fast. The mesh provides service discovery, load balancing, encryption, authentication and authorization, support for the circuit breaker pattern, and other capabilities.
 
----
+## My slides
 
-# Istio architecture
+Slides showing transformation from traditional direct service to service communication to adding proxies and making it a service mesh: <https://docs.google.com/presentation/d/12cWxrlMfePNx2WN3JP0CmsAsYmPPt7hib2WHUQQbTcM/edit?usp=sharing>.
+
+## Istio architecture
 
 ![Istio Architecture](https://istio.io/docs/concepts/what-is-istio/arch.svg)
 
----
-
-# Istio features
+## Istio features
 
 - Traffic management
 
