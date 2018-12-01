@@ -32,4 +32,4 @@ clean: ## Delete all Istio resources
 	kubectl delete -f $(ISTIO_HOME)/install/kubernetes/helm/istio/templates/crds.yaml -n istio-system
 
 help: ## Display this help. Thanks to https://suva.sh/posts/well-documented-makefiles/
-	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n\nTargets:\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-10s\033[0m %s\n", $$1, $$2 }' $(MAKEFILE_LIST)
+	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n\nTargets:\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-12s\033[0m %s\n", $$1, $$2 }' $(MAKEFILE_LIST)
