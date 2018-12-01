@@ -4,12 +4,12 @@ metadata:
   name: reviews
 spec:
   hosts:
-    - reviews
+    - reviews # http://reviews/hello
   http:
     - match:
         - headers:
             end-user:
-              exact: tim
+              prefix: joe
       route:
         - destination:
             host: reviews
@@ -18,3 +18,17 @@ spec:
         - destination:
             host: reviews
             subset: v1
+
+
+
+
+
+
+# - match:
+#     - headers:
+#         end-user:
+#           exact: joe
+#   route:
+#     - destination:
+#         host: reviews
+#         subset: v2

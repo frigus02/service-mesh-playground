@@ -19,11 +19,11 @@ open-jaeger: ## Open Jaeger in browser
 	@open http://localhost:16686
 	kubectl port-forward -n istio-system $$(kubectl get pod -n istio-system -l app=jaeger -o jsonpath='{.items[0].metadata.name}') 16686:16686
 
-canary: ## Test version 2 of reviews service (black stars) with user "tim"
+canary: ## Test version 2 of reviews service (black stars) with user "joe"
 	kubectl apply -f demo-manifests/canary-reviews-v2.yaml
 
-canary-error: ## Version 2 of reviews service with user "joe" doesn't work
-	kubectl apply -f demo-manifests/canary-reviews-v2-errors.yaml
+canary-error: ## Version 1 of ratings service with user "joe.p" doesn't work
+	kubectl apply -f demo-manifests/canary-ratings-v1-errors.yaml
 
 clean: ## Delete all Istio resources
 	$(ISTIO_HOME)/samples/bookinfo/platform/kube/cleanup.sh
