@@ -26,10 +26,11 @@ canary-error: ## Version 1 of ratings service with user "joe.p" doesn't work
 	kubectl apply -f demo-manifests/canary-ratings-v1-errors.yaml
 
 clean: ## Delete all Istio resources
+	kubectl delete -f demo-manifests/ || true
 	$(ISTIO_HOME)/samples/bookinfo/platform/kube/cleanup.sh
 	kubectl label namespace default istio-injection-
-	kubectl delete -f $(ISTIO_HOME)/install/kubernetes/istio-demo.yaml
-	kubectl delete -f $(ISTIO_HOME)/install/kubernetes/helm/istio/templates/crds.yaml -n istio-system
+	kubectl delete -f $(ISTIO_HOME)/install/kubernetes/istio-demo.yaml || true
+	kubectl delete -f $(ISTIO_HOME)/install/kubernetes/helm/istio/templates/crds.yaml -n istio-system || true
 
 help: ## Display this help. Thanks to https://suva.sh/posts/well-documented-makefiles/
 	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n\nTargets:\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-12s\033[0m %s\n", $$1, $$2 }' $(MAKEFILE_LIST)
