@@ -6,14 +6,6 @@ spec:
   hosts:
     - reviews # http://reviews/hello
   http:
-    - match:
-        - headers:
-            end-user:
-              prefix: joe
-      route:
-        - destination:
-            host: reviews
-            subset: v2
     - route:
         - destination:
             host: reviews
@@ -24,10 +16,16 @@ spec:
 
 
 
+
+
+
+
+
+
 # - match:
 #     - headers:
 #         end-user:
-#           exact: joe
+#           prefix: joe
 #   route:
 #     - destination:
 #         host: reviews

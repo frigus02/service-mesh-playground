@@ -6,22 +6,16 @@ spec:
   hosts:
     - ratings
   http:
-    - match:
-        - headers:
-            end-user:
-              exact: joe.p
-      route:
-        - destination:
-            host: ratings
-            subset: v1
-      fault:
-        abort:
-          percent: 100
-          httpStatus: 500
     - route:
         - destination:
             host: ratings
             subset: v1
+
+
+
+
+
+
 
 
 

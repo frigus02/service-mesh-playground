@@ -4,5 +4,5 @@
 
 ## Contents
 
-- [20mins slides](./20mins-slides)
+- [dxday](./dxday)
 - [Lunch and learn](./lunch-and-learn)
