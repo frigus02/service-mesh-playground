@@ -1,9 +1,9 @@
 .DEFAULT_GOAL:=help
-ISTIO_HOME:=../../istio-1.0.4
+ISTIO_HOME:=../../istio-1.1.4
 
 prepare: ## Prepare Istio installation for demo
 	@echo "Installing Istio"
-	kubectl apply -f $(ISTIO_HOME)/install/kubernetes/helm/istio/templates/crds.yaml
+	$(for i in $(ISTIO_HOME)/install/kubernetes/helm/istio-init/files/crd*yaml; do kubectl apply -f $i; done)
 	kubectl apply -f $(ISTIO_HOME)/install/kubernetes/istio-demo.yaml
 	@echo "Installing Bookinfo application"
 	kubectl label namespace default istio-injection=enabled
@@ -24,6 +24,9 @@ canary: ## Test version 2 of reviews service (black stars) with user "joe"
 
 canary-error: ## Version 1 of ratings service with user "joe.p" doesn't work
 	kubectl apply -f demo-manifests/canary-ratings-v1-errors.yaml
+
+reset:
+	kubectl apply -f demo-manifests/defaults.yaml
 
 clean: ## Delete all Istio resources
 	kubectl delete -f demo-manifests/ || true
